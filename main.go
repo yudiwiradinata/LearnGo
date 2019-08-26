@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 type bd interface {
+	getBotVersion() float64
 	getGreeting() string
 }
 
@@ -20,6 +21,14 @@ func main() {
 
 func printGreeting(o bd) {
 	fmt.Println(o.getGreeting())
+	fmt.Println(o.getBotVersion())
+}
+func (englishBot) getBotVersion() float64 {
+	return 3.5
+}
+
+func (spanishBot) getBotVersion() float64 {
+	return 3.6
 }
 
 func (eb englishBot) getGreeting() string {
